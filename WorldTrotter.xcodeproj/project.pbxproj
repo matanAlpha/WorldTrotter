@@ -97,12 +97,9 @@
 		84371F9A1E59D7A3003CA380 /* WorldTrotter */ = {
 			isa = PBXGroup;
 			children = (
-				84371F9B1E59D7A3003CA380 /* AppDelegate.swift */,
+				84371FC91E59D8C9003CA380 /* Supporting files */,
 				84371F9D1E59D7A3003CA380 /* ViewController.swift */,
 				84371F9F1E59D7A3003CA380 /* Main.storyboard */,
-				84371FA21E59D7A3003CA380 /* Assets.xcassets */,
-				84371FA41E59D7A3003CA380 /* LaunchScreen.storyboard */,
-				84371FA71E59D7A3003CA380 /* Info.plist */,
 			);
 			path = WorldTrotter;
 			sourceTree = "<group>";
@@ -123,6 +120,17 @@
 				84371FBD1E59D7A3003CA380 /* Info.plist */,
 			);
 			path = WorldTrotterUITests;
+			sourceTree = "<group>";
+		};
+		84371FC91E59D8C9003CA380 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				84371F9B1E59D7A3003CA380 /* AppDelegate.swift */,
+				84371FA21E59D7A3003CA380 /* Assets.xcassets */,
+				84371FA41E59D7A3003CA380 /* LaunchScreen.storyboard */,
+				84371FA71E59D7A3003CA380 /* Info.plist */,
+			);
+			name = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
