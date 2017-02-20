@@ -201,6 +201,7 @@
 				TargetAttributes = {
 					84371F971E59D7A3003CA380 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9GG6884E9J;
 						ProvisioningStyle = Automatic;
 					};
 					84371FAB1E59D7A3003CA380 = {
@@ -420,7 +421,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9GG6884E9J;
 				INFOPLIST_FILE = WorldTrotter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = matan.alpha.com.WorldTrotter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,7 +436,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9GG6884E9J;
 				INFOPLIST_FILE = WorldTrotter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = matan.alpha.com.WorldTrotter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +520,7 @@
 				84371FC21E59D7A3003CA380 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84371FC31E59D7A3003CA380 /* Build configuration list for PBXNativeTarget "WorldTrotterTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +529,7 @@
 				84371FC51E59D7A3003CA380 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84371FC61E59D7A3003CA380 /* Build configuration list for PBXNativeTarget "WorldTrotterUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +538,7 @@
 				84371FC81E59D7A3003CA380 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
