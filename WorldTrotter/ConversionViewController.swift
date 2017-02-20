@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConversionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,17 @@ class ViewController: UIViewController {
 
  
 
+    @IBOutlet weak var celsiusLabel: UILabel!
 
+    
+    @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
+        if let text = textField.text, !text.isEmpty {
+            celsiusLabel.text = text
+        }else
+        {
+            celsiusLabel.text = "???"
+        }
+    }
+    
 }
 
