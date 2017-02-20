@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversionViewController: UIViewController {
+class ConversionViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +22,73 @@ class ConversionViewController: UIViewController {
 //        let secondView = UIView(frame: secondFrame)
 //        secondView.backgroundColor = UIColor.green
 //        firstView.addSubview(secondView)
+        updateCelsiusLabel()
+        textField.delegate = self
     }
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
+        let replacementTextHasDecimalSeparator = string.range(of: ".")
+        print(string)
+        if existingTextHasDecimalSeparator != nil,
+            replacementTextHasDecimalSeparator != nil {
+            return false
+        } else
+        {
+                let phone = string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+                if ((phone == string) || string == ".")
+                {
+                    return true
+                }else{
+                    return false
+                }
+        }
+    }
+    
+  
+        
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1
+        return nf }()
  
 
     @IBOutlet weak var celsiusLabel: UILabel!
-
+    var fahrenheitValue: Measurement<UnitTemperature>? {
+        didSet {
+            updateCelsiusLabel()
+        }
+    }
     
-    @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
-        if let text = textField.text, !text.isEmpty {
-            celsiusLabel.text = text
-        }else
-        {
+    var celsiusValue: Measurement<UnitTemperature>? {
+        if let fahrenheitValue = fahrenheitValue {
+            return fahrenheitValue.converted(to: .celsius)
+        } else {
+            return nil }
+    }
+
+    func updateCelsiusLabel() {
+        if let celsiusValue = celsiusValue {
+            celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
+        } else {
             celsiusLabel.text = "???"
         }
+    }
+
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
+        if let text = textField.text, let value = Double(text) {
+            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+        } else {
+            fahrenheitValue = nil
+        }
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textField.resignFirstResponder()
     }
     
 }
