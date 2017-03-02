@@ -25,7 +25,33 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         updateCelsiusLabel()
         textField.delegate = self
     }
+    
+    var isDark = false
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let date = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        //B. Get the current hour
+        let currentHour = Int(dateFormatter.string(from: date as Date))!
+        
+        if (currentHour > 21 || currentHour < 8)
+        {
+           isDark = true
+        }else{
+            isDark = false
+        }
+        
+        if(isDark)
+        {
+            view.backgroundColor = UIColor.black
+        }else{
+             view.backgroundColor = UIColor.lightGray
+        }
+        
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
